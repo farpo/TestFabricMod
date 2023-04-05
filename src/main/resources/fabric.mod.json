@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "trymod",
+  "version": "${version}",
+  "name": "Trymod",
+  "description": "",
+  "authors": [
+    "Farpo"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/Trymod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "eu.ansquare.trymod.client.TrymodClient"
+    ],
+    "main": [
+      "eu.ansquare.trymod.Trymod"
+    ]
+  },
+  "mixins": [
+    "Trymod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric": "*",
+    "minecraft": "1.19.4"
+  }
+}
