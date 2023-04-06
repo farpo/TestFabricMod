@@ -1,34 +1,33 @@
 package eu.ansquare.trymod;
 
 import eu.ansquare.trymod.blocks.Gnblock;
-import eu.ansquare.trymod.items.Fineitem;
+import eu.ansquare.trymod.entities.SurikataEntity;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.Material;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class Trymod implements ModInitializer {
+    public static final String MODID = "trymod";
 
-    public static final Fineitem FINE_ITEM = new Fineitem(new FabricItemSettings());
-    public static final Gnblock GNBLOCK = new Gnblock(FabricBlockSettings.of(Material.METAL).strength(4.0f).breakInstantly());
+    public static final EntityType<SurikataEntity> SURIKATA = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(MODID, "surikata"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SurikataEntity::new).dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
     @Override
     public void onInitialize() {
-        Registry.register(Registries.ITEM, new Identifier("trymod", "fine_item"), FINE_ITEM);
-        Registry.register(Registries.BLOCK, new Identifier("trymod", "gnblock"), GNBLOCK);
-        Registry.register(Registries.ITEM, new Identifier("trymod", "gnblock"), new BlockItem(GNBLOCK, new FabricItemSettings()));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
-            content.addAfter(Items.COMPASS, FINE_ITEM);
-        });
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
-            content.addAfter(Items.CRAFTING_TABLE, FINE_ITEM);
-        });
+        BlockInit.init();
+        ItemInit.init();
+        FabricDefaultAttributeRegistry.register(SURIKATA, SurikataEntity.createMobAttributes());
     }
 }
