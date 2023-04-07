@@ -19,15 +19,17 @@ import net.minecraft.util.registry.Registry;
 
 public class Trymod implements ModInitializer {
     public static final String MODID = "trymod";
-
     public static final EntityType<SurikataEntity> SURIKATA = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(MODID, "surikata"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SurikataEntity::new).dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
+    public static final Item SURIKATA_SPAWN_EGG = new SpawnEggItem(SURIKATA, 0xc4c4c4, 0xadadad, new FabricItemSettings().group(ItemGroup.MISC));
+
     @Override
     public void onInitialize() {
         BlockInit.init();
         ItemInit.init();
         FabricDefaultAttributeRegistry.register(SURIKATA, SurikataEntity.createMobAttributes());
+        Registry.register(Registry.ITEM, new Identifier(MODID, "surikata_spawn_egg"), SURIKATA_SPAWN_EGG);
     }
 }

@@ -1,0 +1,80 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.SurikataEntityModel",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [-1, 0, 0],
+					"rotation": [0, 180, 0]
+				},
+				{
+					"name": "body",
+					"parent": "root",
+					"pivot": [0, 3, 0],
+					"cubes": [
+						{"origin": [-1, 1, -4], "size": [2, 2, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "leftarm",
+					"parent": "root",
+					"pivot": [-1, 2, 3],
+					"cubes": [
+						{"origin": [-2, 0, 2], "size": [1, 2, 1], "uv": [8, 10]}
+					]
+				},
+				{
+					"name": "rightarm",
+					"parent": "root",
+					"pivot": [1, 2, 3],
+					"cubes": [
+						{"origin": [1, 0, 2], "size": [1, 2, 1], "uv": [4, 10]}
+					]
+				},
+				{
+					"name": "leftleg",
+					"parent": "root",
+					"pivot": [-1, 2, -2],
+					"cubes": [
+						{"origin": [-2, 0, -3], "size": [1, 2, 1], "uv": [0, 10]}
+					]
+				},
+				{
+					"name": "rightleg",
+					"parent": "root",
+					"pivot": [1, 2, -2],
+					"cubes": [
+						{"origin": [1, 0, -3], "size": [1, 2, 1], "uv": [3, 4]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "root",
+					"pivot": [0, 3, 4],
+					"cubes": [
+						{"origin": [-1, 2, 4], "size": [2, 2, 2], "uv": [0, 0]},
+						{"origin": [1, 4, 4], "size": [0, 1, 1], "uv": [0, 7]},
+						{"origin": [-1, 4, 4], "size": [0, 1, 1], "uv": [0, 7]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "root",
+					"pivot": [0, 3, -4],
+					"cubes": [
+						{"origin": [0, 3, -7], "size": [0, 1, 3], "uv": [0, 2]}
+					]
+				}
+			]
+		}
+	]
+}

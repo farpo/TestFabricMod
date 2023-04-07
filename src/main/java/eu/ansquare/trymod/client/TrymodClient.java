@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
+import software.bernie.example.registry.EntityRegistry;
 
 @Environment(EnvType.CLIENT)
 public class TrymodClient implements ClientModInitializer {
@@ -17,10 +18,7 @@ public class TrymodClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(Trymod.SURIKATA, (context) -> {
-            return new SurikataEntityRenderer(context);
-        });
+        EntityRendererRegistry.register(Trymod.SURIKATA, SurikataEntityRenderer::new);
 
-        EntityModelLayerRegistry.registerModelLayer(SURIKATA_MODEL_LAYER, SurikataEntityModel::getTexturedModelData);
     }
 }

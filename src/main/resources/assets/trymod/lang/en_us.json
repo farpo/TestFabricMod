@@ -1,5 +1,7 @@
 {
   "item.trymod.fine_item" : "Fine item",
   "block.trymod.gnblock": "Gn block",
-  "item.trymod.gnblock": "Gn block"
+  "item.trymod.gnblock": "Gn block",
+  "item.trymod.surikata_spawn_egg": "Meerkat spawn egg",
+  "entity.trymod.surikata": "Meerkat"
 }
